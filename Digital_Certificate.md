@@ -20,12 +20,6 @@ A digital certificate typically includes the following components:
 - **Extensions**: Additional information such as key usage, certificate policies, and subject alternative names.
 - **Signature**: The CA's digital signature that verifies the certificate's authenticity.
 
-### Example Structure in PEM Format
-```plaintext
------BEGIN CERTIFICATE-----
-MIIDdzCCAl+gAwIBAgIEU1Zk...
-...
------END CERTIFICATE-----
 
 
 
@@ -75,5 +69,14 @@ This information is published in a Certificate Revocation List (CRL) or via the 
 - **Maintaining Trust**: The CA acts as a trusted third party, ensuring that the certificates it issues are accepted and trusted by users and systems.
 
 These functions are essential for maintaining the security and trustworthiness of digital communications and transactions.
+
+### Example Structure in PEM Format
+```plaintext
+-----BEGIN CERTIFICATE-----
+MIIDdzCCAl+gAwIBAgIEU1Zk...
+...
+-----END CERTIFICATE-----
+
+
 
 
