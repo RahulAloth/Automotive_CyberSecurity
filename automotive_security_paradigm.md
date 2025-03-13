@@ -36,3 +36,43 @@ Securing communication between the vehicle and external entities involves implem
 
 By implementing these layers of security, automotive systems can achieve comprehensive protection against 
 a wide range of threats, ensuring the safety and integrity of the vehicle's electronic components and communication networks.
+### Automotive Security Controls
+Automotive security controls are measures implemented to protect vehicle systems from cyber threats and unauthorized access. These controls ensure the confidentiality, 
+integrity, and availability of vehicle functions, safeguarding both the vehicle and its occupants.
+
+#### 1. We Control Unethical Hacking of the System
+- **Overview**: This involves implementing various cybersecurity measures to prevent unauthorized access and manipulation of the vehicle's
+   electronic systems. The goal is to protect the vehicle from hackers who may attempt to exploit vulnerabilities for malicious purposes.
+- **Techniques**: Techniques include intrusion detection systems, regular security audits, and applying security patches to address known vulnerabilities.
+
+#### 2. Secure On-Board Communication
+- **Overview**: Ensuring secure communication between the various Electronic Control Units (ECUs) within the vehicle is crucial.
+  This prevents unauthorized access and tampering with the data exchanged between these units.
+- **Integrity and Authenticity of Messages**: Implementing cryptographic protocols, such as MACsec (Media Access Control Security), ensures
+  that messages on the vehicle bus are protected against tampering and unauthorized access. This guarantees that the data transmitted between ECUs is both authentic and intact.
+
+#### 3. Secure Access
+- **Overview**: Secure access controls ensure that only authorized individuals and devices can interact with the vehicle's systems. This includes both physical and remote access.
+- **Techniques**: Techniques include multi-factor authentication, secure key management, and access control lists to restrict access to sensitive areas of the vehicle's network.
+
+#### 4. Secure Flash
+- **Overview**: Secure flash refers to the process of securely updating the vehicle's firmware and software. This ensures
+  that only authenticated and authorized updates are applied to the vehicle's systems.
+- **Techniques**: Techniques include cryptographic signing of firmware updates and verifying the integrity and authenticity of the updates before applying them.
+
+#### 5. Secure Boot
+- **Overview**: Secure boot is a process that ensures the vehicle's system boots up using only trusted and verified software. This prevents unauthorized or
+  malicious software from being loaded during the boot process.
+- **Techniques**: Techniques include cryptographic verification of the bootloader and firmware, ensuring that only software signed by a trusted authority is executed.
+
+#### 6. Hardware Protection
+- **Overview**: Hardware protection involves securing the physical components of the vehicle's electronic systems to prevent tampering and unauthorized access.
+- **Techniques**: Techniques include the use of Hardware Security Modules (HSMs) to perform cryptographic operations securely,
+   protecting cryptographic keys and sensitive data from physical and side-channel attacks.
+
+#### 7. Secure Storage
+- **Overview**: Secure storage ensures that sensitive data, such as cryptographic keys and personal information, is stored securely within the vehicle's systems.
+- **Techniques**: Techniques include encryption of stored data, secure key management, and using secure storage areas within HSMs to protect sensitive information.
+
+By implementing these security controls, automotive systems can achieve comprehensive protection against a wide range of threats,
+ensuring the safety and integrity of the vehicle's electronic components and communication networks.
