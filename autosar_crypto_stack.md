@@ -151,3 +151,81 @@ Here are some best practices to consider:
    them updated on best practices and emerging threats.
 
 By following these best practices, you can enhance the security and performance of crypto drivers in automotive systems, ensuring a robust and reliable security architecture.
+# Security Testing
+
+Security testing is crucial for identifying vulnerabilities and ensuring the safety of systems and applications. Here are some common security testing methods:
+
+- **Vulnerability Scanning**: Automated tools scan systems for known vulnerabilities, such as missing patches or weak passwords.
+- **Penetration Testing**: Ethical hackers simulate attacks to identify weaknesses and potential entry points.
+- **Security Scanning**: Systematic analysis of networks, applications, and servers to find vulnerabilities.
+- **Risk Assessment**: Evaluates the potential risks and impacts of identified vulnerabilities.
+- **Security Auditing**: Reviews and assesses security policies, procedures, and controls.
+- **Posture Assessment**: Combines security scanning, ethical hacking, and risk assessments to provide a comprehensive security overview.
+- **Static Code Analysis**: Examines source code for security flaws without executing the program.
+- **Dynamic Analysis**: Tests the application in a running state to identify vulnerabilities during execution.
+
+# Real Core (Core 0)
+
+The term "real core" typically refers to the main processing unit of a system, such as the CPU (Central Processing Unit) or MCU (Microcontroller Unit). This core handles the primary computational tasks and runs the main application code. It is responsible for executing instructions, managing system resources, and performing general-purpose processing.
+
+Core 0 typically refers to the primary processing core in a multi-core system. It handles general-purpose tasks and runs the main application code. In embedded systems, Core 0 is often responsible for managing system resources, executing instructions, and performing computational tasks.
+
+# HSM Core
+
+Hardware Security Module (HSM) core is a specialized component designed to enhance security within a system. It performs security-critical tasks such as encryption, decryption, key management, and secure boot processes. HSM cores are often used in embedded systems, automotive applications, and other environments where robust security is essential.
+
+Key features of HSM cores include:
+
+- **Secure CPU**: Executes security-critical tasks.
+- **Dedicated RAM and Boot ROM**: Provides isolated memory for secure operations.
+- **Cryptographic Engines**: Includes AES (Advanced Encryption Standard) and TRNG (True Random Number Generator) for cryptographic functions.
+- **Secure Communication**: Ensures secure data exchange between the main core and HSM core.
+
+HSM cores help protect sensitive information and prevent unauthorized access or manipulation, making them vital for maintaining system integrity and security.
+
+# Interaction Between Core 0 and HSM Core
+
+In systems where both Core 0 and HSM core are present, they often need to communicate and coordinate their tasks. Here are some key points about their interaction:
+
+- **Communication Setup**: Secure communication channels are established between Core 0 and HSM core to exchange data and commands.
+- **Firmware Loading**: Specific procedures are followed to load firmware onto the HSM core, ensuring it operates correctly and securely.
+- **Debugging**: Debugging the HSM core may require specialized tools and configurations to ensure it runs independently or alongside Core 0.
+
+## Communication Mechanisms
+
+Communication between Core 0 and the HSM core involves several key mechanisms to ensure secure and efficient data exchange:
+
+- **Shared Memory**: One common method is using shared RAM. Both cores can access this memory area to read and write data. The main CPU (Core 0) places data, such as encryption keys or messages, into the shared RAM, and the HSM core reads this data to perform its security functions.
+- **Secure Proxy**: In some systems, a secure proxy is used to facilitate communication. This involves setting up specific thread IDs and host IDs to route messages securely between the cores. For example, the main core might use a write thread to send data to the HSM core and a read thread to receive responses.
+- **Firmware Loading**: Loading firmware onto the HSM core can be done using specialized APIs, such as `Bootloader_loadCpu` or `Sciclient_loadFirmware`. These methods ensure the HSM core operates with the correct security protocols and configurations.
+- **Dedicated Communication Protocols**: In certain architectures, dedicated communication protocols like PCIe, USB, or TCP/IP may be used, depending on the form factor of the HSM. These protocols ensure reliable and secure data transfer between the cores.
+- **Isolation and Security**: The HSM core often has its own isolated memory areas (RAM and Flash) that cannot be accessed by the main CPU. This isolation helps protect sensitive data from unauthorized access.
+
+# HSM Core Services
+
+The HSM (Hardware Security Module) core provides a range of security services designed to protect sensitive data and ensure system integrity. Here are some key services typically offered by HSM cores:
+
+- **Cryptographic Services**:
+  - **Encryption and Decryption**: Securely encrypts and decrypts data using various algorithms like AES (Advanced Encryption Standard).
+  - **Key Management**: Generates, stores, and manages cryptographic keys securely.
+  - **Digital Signatures**: Creates and verifies digital signatures to ensure data authenticity and integrity.
+- **Secure Boot**:
+  - **Secure Boot Process**: Ensures that the system boots using trusted firmware and software, preventing unauthorized code execution.
+- **Authentication**:
+  - **User Authentication**: Verifies user identities using secure methods, such as biometric data or cryptographic keys.
+- **Secure Communication**:
+  - **Secure Data Exchange**: Facilitates secure communication between different system components, ensuring data privacy and integrity.
+- **Random Number Generation**:
+  - **True Random Number Generator (TRNG)**: Generates random numbers for cryptographic operations, enhancing security.
+- **Data Protection**:
+  - **Sensitive Data Storage**: Provides secure storage for sensitive information, such as passwords and personal data.
+
+# Secure Debugging
+
+Secure debugging is typically provided by the HSM core (Hardware Security Module core). The HSM core is designed to handle security-critical tasks, including secure debugging, which ensures that sensitive information and operations remain protected during the debugging process.
+
+Secure debugging features may include:
+
+- **Isolated Debugging Environment**: Ensures that debugging operations do not interfere with or expose sensitive data.
+- **Access Control**: Restricts debugging access to authorized personnel only.
+- **Secure Communication**: Uses encrypted channels to transmit debugging information, preventing unauthorized access.
