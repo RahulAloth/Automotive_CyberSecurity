@@ -36,3 +36,30 @@ Imagine a scenario where a vehicle's control unit sends a command to another uni
 ## Summary
 
 SecOC in AUTOSAR provides a robust framework for securing communication within automotive systems by protecting data against unauthorized manipulation and replay attacks. The use of Authentic I-PDUs, Secured I-PDUs, Freshness Values, and Authenticators ensures the integrity and authenticity of the transmitted data.
+
+# Why We Need Freshness Value
+
+Freshness Values are crucial in preventing replay attacks. A replay attack occurs when an attacker intercepts a valid data transmission and then retransmits it to trick the receiver into accepting it as a new, valid message. By using Freshness Values, we can ensure that each message is unique and cannot be reused by an attacker.
+
+## Types of Freshness Values
+
+There are two main types of Freshness Values:
+
+### Counter-Based Freshness Value
+
+- **Description**: This method uses a counter that increments with each message sent. Both the sender and receiver maintain a synchronized counter.
+- **How It Works**: When a message is received, the receiver checks the counter value. If the counter value is higher than the last received value, the message is accepted. If it is the same or lower, the message is rejected as a potential replay attack.
+
+### Timestamp-Based Freshness Value
+
+- **Description**: This method uses timestamps to ensure message freshness. Both the sender and receiver rely on synchronized clocks.
+- **How It Works**: Each message includes a timestamp indicating when it was sent. The receiver checks the timestamp against its own clock. If the timestamp is within an acceptable range, the message is accepted. If it is outside this range, the message is rejected as a potential replay attack.
+
+## Example Scenario
+
+Imagine a vehicle's control unit sends a command to another unit, such as unlocking the doors. Without a Freshness Value, an attacker could intercept this command and replay it later, unlocking the doors without authorization. By including a Freshness Value, the control unit ensures that each command is unique and cannot be reused, thus preventing such replay attacks.
+
+## Summary
+
+Freshness Values are essential in automotive cybersecurity to prevent replay attacks. By using either counter-based or timestamp-based Freshness Values, we can ensure that each message is unique and cannot be reused by an attacker, thereby maintaining the integrity and security of the communication.
+
