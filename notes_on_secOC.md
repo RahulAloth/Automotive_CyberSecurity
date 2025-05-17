@@ -227,3 +227,28 @@ Network Security: Authenticating users and devices in a network.
 Automotive Diagnostics: Ensuring that only authorized diagnostic tools can access the ECU.
 Online Services: Verifying user identities for secure access to online accounts.
 Challenge-response authentication is a robust method for ensuring secure and reliable verification of identities, making it widely used in various security-sensitive applications.
+
+
+# Some Notes
+Notes on Encripytion example from MCU 
+## Encryption Process
+The ECU uses the installed ECUPwdEncryptKey public key to encrypt the generated digital password.
+
+## Decryption Process
+To decrypt the encrypted password, you need the private key that pairs with the ECUPwdEncryptKey public key. This private key is typically securely stored and managed, often within a secure environment or a hardware security module (HSM).
+
+## Storage Location of the Private Key
+The storage location of the private key can vary depending on the security architecture and requirements of the system. Here are some common scenarios:
+
+### Stored Outside the ECU
+- **Secure Server**: The private key might be stored on a secure server or within a secure infrastructure outside the ECU. This server handles decryption requests and ensures that the private key is protected from unauthorized access.
+- **Hardware Security Module (HSM)**: The private key can be stored in an HSM, which is a dedicated hardware device designed to manage and protect cryptographic keys. HSMs provide a high level of security and are often used in enterprise environments.
+
+### Stored Inside the ECU
+- **Secure Element**: Some ECUs are equipped with a secure element or a trusted platform module (TPM) that can securely store cryptographic keys. This ensures that the private key is protected within the ECU itself.
+- **Firmware**: In some cases, the private key might be embedded in the ECU's firmware, though this approach is less secure compared to using a secure element or TPM.
+
+## Considerations
+- **Security**: Storing the private key outside the ECU can enhance security by centralizing key management and reducing the risk of key exposure. However, it requires secure communication channels between the ECU and the key management system.
+- **Performance**: Storing the private key inside the ECU can improve performance by reducing the latency associated with external key management systems. However, it requires robust security measures within the ECU to protect the key.
+
